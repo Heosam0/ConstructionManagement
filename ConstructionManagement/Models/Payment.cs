@@ -7,13 +7,29 @@ public partial class Payment
 {
     public int Id { get; set; }
 
-    public decimal? Amount { get; set; }
+    public int? ProjectId { get; set; }
 
-    public string? Type { get; set; }
+    public decimal Amount { get; set; }
 
-    public DateTime Date { get; set; }
+    public string Type { get; set; } = null!;
 
-    public int? ContractId { get; set; }
+    public string? Category { get; set; }
 
-    public virtual Contract? Contract { get; set; }
+    public string? Description { get; set; }
+
+    public DateTime? PaymentDate { get; set; }
+
+    public string? PaymentMethod { get; set; }
+
+    public string? Status { get; set; }
+
+    public int? CreatedBy { get; set; }
+
+    public DateTime? CreatedAt { get; set; }
+
+    public DateTime? UpdatedAt { get; set; }
+
+    public virtual User? CreatedByNavigation { get; set; }
+
+    public virtual Project? Project { get; set; }
 }

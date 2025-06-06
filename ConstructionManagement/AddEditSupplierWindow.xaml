@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ConstructionManagement"
         mc:Ignorable="d"
-         Title="{Binding WindowTitle}" Height="350" Width="450"
+         Title="{Binding WindowTitle}" Height="356" Width="461"
         ResizeMode="NoResize">
     <Grid Margin="10">
         <Grid.RowDefinitions>
@@ -31,7 +31,7 @@
 
         <!-- Кнопки -->
         <StackPanel Grid.Row="6" Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,10,0,0">
-            <Button Content="Сохранить" Width="80" Margin="0,0,10,0" Click="SaveButton_Click" />
+            <Button Content="Сохранить" Width="104" Margin="0,0,10,0" Click="SaveButton_Click" />
             <Button Content="Отмена" Width="80" Click="CancelButton_Click" />
         </StackPanel>
     </Grid>
