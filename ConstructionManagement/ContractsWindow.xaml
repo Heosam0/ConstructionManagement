@@ -1,0 +1,25 @@
+﻿<Window x:Class="ConstructionManagement.ContractsWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ConstructionManagement"
+        mc:Ignorable="d"
+         Title="Управление контрактами" Height="450" Width="800">
+    <Grid Margin="10">
+        <DataGrid x:Name="ContractsDataGrid" AutoGenerateColumns="False" Margin="0,0,0,50"
+                  CanUserAddRows="False" IsReadOnly="True">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="ID" Binding="{Binding Id}" Width="Auto" />
+                <DataGridTextColumn Header="Название" Binding="{Binding Name}" Width="*" />
+                <DataGridTextColumn Header="Дата заключения" Binding="{Binding DateOfConclusion, StringFormat={}{0:dd.MM.yyyy}}" Width="Auto" />
+                <DataGridTextColumn Header="Сумма" Binding="{Binding Amount}" Width="Auto" />
+                <DataGridTextColumn Header="Заказчик" Binding="{Binding Customers.OrganizationName}" Width="*" />
+                <DataGridTextColumn Header="Платежи" Binding="{Binding Payments.Count}" Width="Auto" />
+            </DataGrid.Columns>
+        </DataGrid>
+        <Button Content="Добавить" HorizontalAlignment="Left" VerticalAlignment="Bottom" Width="100" Margin="0,0,10,10" Click="AddContract_Click" />
+        <Button Content="Редактировать" HorizontalAlignment="Left" VerticalAlignment="Bottom" Width="100" Margin="110,0,10,10" Click="EditContract_Click" />
+        <Button Content="Удалить" HorizontalAlignment="Left" VerticalAlignment="Bottom" Width="100" Margin="220,0,10,10" Click="DeleteContract_Click" />
+    </Grid>
+</Window>

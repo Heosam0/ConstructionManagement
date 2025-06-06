@@ -1,0 +1,46 @@
+﻿<Window x:Class="ConstructionManagement.AddEditContractWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ConstructionManagement"
+        mc:Ignorable="d"
+       Title="{Binding WindowTitle}" Height="350" Width="450"
+        ResizeMode="NoResize">
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <!-- Название -->
+        <Label Content="Название:" Grid.Row="0" />
+        <TextBox x:Name="NameTextBox" Grid.Row="1" Text="{Binding Contract.Name, UpdateSourceTrigger=PropertyChanged}" />
+
+        <!-- Дата заключения -->
+        <Label Content="Дата заключения:" Grid.Row="2" />
+        <DatePicker x:Name="DateOfConclusionPicker" Grid.Row="3" SelectedDate="{Binding Contract.DateOfConclusion, UpdateSourceTrigger=PropertyChanged}" />
+
+        <!-- Сумма -->
+        <Label Content="Сумма:" Grid.Row="4" />
+        <TextBox x:Name="AmountTextBox" Grid.Row="5" Text="{Binding Contract.Amount, UpdateSourceTrigger=PropertyChanged}" Height="23" VerticalAlignment="Top" />
+
+        <!-- Заказчик -->
+        <Label Content="Заказчик:" Grid.Row="5" Margin="0,19,0,115" />
+        <ComboBox x:Name="CustomerComboBox" Grid.Row="5"
+                  DisplayMemberPath="OrganizationName"
+                  SelectedValuePath="Id"
+                  SelectedValue="{Binding Contract.CustomersId, UpdateSourceTrigger=PropertyChanged}" Margin="0,52,0,0" Height="30" VerticalAlignment="Top" />
+
+        <!-- Кнопки -->
+        <StackPanel Grid.Row="8" Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,10,0,0">
+            <Button Content="Сохранить" Width="80" Margin="0,0,10,0" Click="SaveButton_Click" />
+            <Button Content="Отмена" Width="80" Click="CancelButton_Click" />
+        </StackPanel>
+    </Grid>
+</Window>
