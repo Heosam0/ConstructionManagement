@@ -7,29 +7,13 @@ public partial class Equipment
 {
     public int Id { get; set; }
 
-    public string Name { get; set; } = null!;
+    public string? Name { get; set; }
 
-    public string? Description { get; set; }
+    public DateTime DateOfPurchase { get; set; }
 
-    public string? Status { get; set; }
+    public decimal? Cost { get; set; }
 
-    public DateTime? PurchaseDate { get; set; }
+    public int? SupplierId { get; set; }
 
-    public decimal? PurchasePrice { get; set; }
-
-    public string? Manufacturer { get; set; }
-
-    public string? Model { get; set; }
-
-    public string? SerialNumber { get; set; }
-
-    public DateTime? LastMaintenance { get; set; }
-
-    public DateTime? NextMaintenance { get; set; }
-
-    public DateTime? CreatedAt { get; set; }
-
-    public DateTime? UpdatedAt { get; set; }
-
-    public virtual ICollection<EquipmentAssignment> EquipmentAssignments { get; set; } = new List<EquipmentAssignment>();
+    public virtual Supplier? Supplier { get; set; }
 }

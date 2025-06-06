@@ -9,7 +9,6 @@ using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
-using Separator = LiveCharts.Wpf.Separator;
 
 namespace ConstructionManagement
 {
@@ -62,91 +61,52 @@ namespace ConstructionManagement
 
         private void UpdateDashboardUI()
         {
-            try
+            // Обновляем статистику
+            txtActiveProjectsCount.Text = _dashboardData.ActiveProjectsCount.ToString();
+            txtTasksCount.Text = _dashboardData.PendingTasksCount.ToString();
+            txtMonthlyExpenses.Text = $"{_dashboardData.MonthlyExpenses:N0} ₽";
+            txtCompletedProjectsCount.Text = _dashboardData.CompletedProjectsCount.ToString();
+
+            // Обновляем график выполнения проектов
+            ProjectSeries = new SeriesCollection();
+            foreach (var project in _dashboardData.ProjectProgress)
             {
-                // Обновляем статистику
-                txtActiveProjectsCount.Text = _dashboardData.ActiveProjectsCount.ToString();
-                txtTasksCount.Text = _dashboardData.PendingTasksCount.ToString();
-                txtMonthlyExpenses.Text = $"{_dashboardData.MonthlyExpenses:N0} ₽";
-                txtCompletedProjectsCount.Text = _dashboardData.CompletedProjectsCount.ToString();
-
-                // Обновляем график выполнения проектов
-                var projectValues = new ChartValues<double>();
-                var projectLabels = new List<string>();
-
-                foreach (var project in _dashboardData.ProjectProgress)
+                ProjectSeries.Add(new ColumnSeries
                 {
-                    projectValues.Add(project.ProgressPercentage);
-                    projectLabels.Add(project.ProjectName);
-                }
-
-                ProjectSeries = new SeriesCollection
-        {
-            new ColumnSeries
-            {
-                Values = projectValues,
-                Title = "Выполнение",
-                Fill = (SolidColorBrush)Application.Current.Resources["PrimaryHueMidBrush"]
+                    Title = project.ProjectName,
+                    Values = new ChartValues<double> { project.ProgressPercentage }
+                });
             }
-        };
+            chartProjectProgress.Series = ProjectSeries;
 
-                chartProjectProgress.Series = ProjectSeries;
-                chartProjectProgress.AxisX = new AxesCollection
-        {
-            new Axis
+            // Обновляем график доходов
+            RevenueSeries = new SeriesCollection
             {
-                Labels = projectLabels,
-                Separator = new Separator { Step = 1 }
-            }
-        };
-
-                // Обновляем график доходов
-                var revenueValues = new ChartValues<decimal>(_dashboardData.MonthlyRevenue.Values);
-                var revenueLabels = _dashboardData.MonthlyRevenue.Keys.ToList();
-
-                RevenueSeries = new SeriesCollection
-        {
-            new LineSeries
-            {
-                Values = revenueValues,
-                Title = "Доходы",
-                LineSmoothness = 0,
-                PointGeometry = DefaultGeometries.Circle,
-                PointGeometrySize = 10,
-                Stroke = (SolidColorBrush)Application.Current.Resources["SecondaryAccentBrush"]
-            }
-        };
-
-                chartRevenue.Series = RevenueSeries;
-                chartRevenue.AxisX = new AxesCollection
-        {
-            new Axis
-            {
-                Labels = revenueLabels,
-                Separator = new Separator { Step = 1 }
-            }
-        };
-
-                // Обновляем список задач
-                lvTasks.Items.Clear();
-                foreach (var task in _dashboardData.RecentTasks)
+                new LineSeries
                 {
-                    lvTasks.Items.Add(new TaskViewModel
-                    {
-                        Description = task.Description,
-                        Status = task.Status,
-                        DueDate = task.DueDate,
-                        StatusIcon = task.Status == "Completed" ? PackIconKind.CheckCircle : PackIconKind.CircleOutline
-                    });
+                    Title = "Доходы",
+                    Values = new ChartValues<decimal>(_dashboardData.MonthlyRevenue.Values)
                 }
-            }
-            catch (Exception ex)
+            };
+            chartRevenue.Series = RevenueSeries;
+
+            // Обновляем список задач
+            lvTasks.Items.Clear();
+            foreach (var task in _dashboardData.RecentTasks)
             {
-                MessageBox.Show($"Ошибка при обновлении интерфейса: {ex.Message}", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                lvTasks.Items.Add(new TaskViewModel
+                {
+                    Description = task.Description,
+                    Status = task.Status,
+                    DueDate = task.DueDate,
+                    StatusIcon = task.Status == "Completed" ? PackIconKind.CheckCircle : PackIconKind.CircleOutline
+                });
             }
         }
 
-        private void ProjectsButton_Click(object sender, RoutedEventArgs e)
+    
+
+          private void ProjectsButton_Click(object sender, RoutedEventArgs e)
         {
             var projectsWindow = new ProjectsWindow();
             projectsWindow.Show();

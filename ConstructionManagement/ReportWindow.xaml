@@ -14,7 +14,7 @@
         </Grid.RowDefinitions>
 
         <!-- Кнопка экспорта -->
-        <Button Content="Экспорт в Excel" HorizontalAlignment="Right" Margin="0,0,10,10" Width="120" Click="ExportToExcel_Click" />
+        <Button Content="Экспорт в Excel" HorizontalAlignment="Right" Margin="0,0,10,10" Width="170" Click="ExportToExcel_Click" />
 
         <!-- DataGrid для отображения данных -->
         <DataGrid x:Name="ReportDataGrid" AutoGenerateColumns="False" Margin="10" Grid.Row="1">

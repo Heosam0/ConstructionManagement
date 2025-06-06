@@ -19,7 +19,7 @@
             </DataGrid.Columns>
         </DataGrid>
         <Button Content="Добавить" HorizontalAlignment="Left" VerticalAlignment="Bottom" Width="100" Margin="0,0,10,10" Click="AddContract_Click" />
-        <Button Content="Редактировать" HorizontalAlignment="Left" VerticalAlignment="Bottom" Width="100" Margin="110,0,10,10" Click="EditContract_Click" />
-        <Button Content="Удалить" HorizontalAlignment="Left" VerticalAlignment="Bottom" Width="100" Margin="220,0,10,10" Click="DeleteContract_Click" />
+        <Button Content="Редактировать" HorizontalAlignment="Left" VerticalAlignment="Bottom" Width="149" Margin="110,0,0,10" Click="EditContract_Click" />
+        <Button Content="Удалить" HorizontalAlignment="Left" VerticalAlignment="Bottom" Width="100" Margin="276,0,0,10" Click="DeleteContract_Click" />
     </Grid>
 </Window>

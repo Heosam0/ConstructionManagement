@@ -22,6 +22,6 @@
         </DataGrid>
         <Button Content="Добавить проект" HorizontalAlignment="Left" Margin="10,0,0,10" VerticalAlignment="Bottom" Width="170" Click="AddProject_Click"/>
         <Button Content="Редактировать" HorizontalAlignment="Left" Margin="185,0,0,10" Width="139" Click="EditProject_Click" Height="32" VerticalAlignment="Bottom"/>
-        <Button Content="Удалить проект" HorizontalAlignment="Center" Margin="0,392,0,0" Width="142" Click="DeleteProject_Click" Height="32" VerticalAlignment="Top"/>
+        <Button Content="Удалить проект" HorizontalAlignment="Center" Margin="0,0,0,10" Width="142" Click="DeleteProject_Click" Height="32" VerticalAlignment="Bottom"/>
     </Grid>
 </Window>

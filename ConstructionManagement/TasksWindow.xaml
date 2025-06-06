@@ -20,7 +20,7 @@
             </DataGrid.Columns>
         </DataGrid>
         <Button Content="Добавить" HorizontalAlignment="Left" VerticalAlignment="Bottom" Width="100" Margin="0,0,10,10" Click="AddTask_Click" />
-        <Button Content="Редактировать" HorizontalAlignment="Left" VerticalAlignment="Bottom" Width="100" Margin="110,0,10,10" Click="EditTask_Click" />
-        <Button Content="Удалить" HorizontalAlignment="Left" VerticalAlignment="Bottom" Width="100" Margin="220,0,10,10" Click="DeleteTask_Click" />
+        <Button Content="Редактировать" HorizontalAlignment="Left" VerticalAlignment="Bottom" Width="130" Margin="110,0,0,10" Click="EditTask_Click" />
+        <Button Content="Удалить" HorizontalAlignment="Left" VerticalAlignment="Bottom" Width="100" Margin="245,0,0,10" Click="DeleteTask_Click" />
     </Grid>
 </Window>

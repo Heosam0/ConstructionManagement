@@ -18,7 +18,7 @@
             </DataGrid.Columns>
         </DataGrid>
         <Button Content="Добавить" HorizontalAlignment="Left" VerticalAlignment="Bottom" Width="100" Margin="0,0,10,10" Click="AddSupplier_Click" />
-        <Button Content="Редактировать" HorizontalAlignment="Left" VerticalAlignment="Bottom" Width="100" Margin="110,0,10,10" Click="EditSupplier_Click" />
-        <Button Content="Удалить" HorizontalAlignment="Left" VerticalAlignment="Bottom" Width="100" Margin="220,0,10,10" Click="DeleteSupplier_Click" />
+        <Button Content="Редактировать" HorizontalAlignment="Left" VerticalAlignment="Bottom" Width="142" Margin="110,0,0,10" Click="EditSupplier_Click" />
+        <Button Content="Удалить" HorizontalAlignment="Left" VerticalAlignment="Bottom" Width="100" Margin="272,0,0,10" Click="DeleteSupplier_Click" />
     </Grid>
 </Window>

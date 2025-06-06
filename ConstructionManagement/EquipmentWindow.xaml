@@ -17,7 +17,7 @@
             </DataGrid.Columns>
         </DataGrid>
         <Button Content="Добавить" HorizontalAlignment="Left" VerticalAlignment="Bottom" Width="100" Margin="0,0,10,10" Click="AddEquipment_Click" />
-        <Button Content="Редактировать" HorizontalAlignment="Left" VerticalAlignment="Bottom" Width="100" Margin="110,0,10,10" Click="EditEquipment_Click" />
-        <Button Content="Удалить" HorizontalAlignment="Left" VerticalAlignment="Bottom" Width="100" Margin="220,0,10,10" Click="DeleteEquipment_Click" />
+        <Button Content="Редактировать" HorizontalAlignment="Left" VerticalAlignment="Bottom" Width="140" Margin="110,0,0,10" Click="EditEquipment_Click" />
+        <Button Content="Удалить" HorizontalAlignment="Left" VerticalAlignment="Bottom" Width="100" Margin="255,0,0,10" Click="DeleteEquipment_Click" />
     </Grid>
 </Window>
